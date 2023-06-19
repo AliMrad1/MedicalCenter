@@ -1,0 +1,62 @@
+﻿@model List<Visiting>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visitings</title>
+    <style>
+        .visiting-card {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .visiting-card .card-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .visiting-card .card-text {
+            margin-bottom: 10px;
+        }
+
+        .visiting-card .card-link {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .visiting-card .card-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Visitings</h1>
+
+        @if (Model != null && Model.Count > 0)
+        {
+            @foreach (var visiting in Model)
+            {
+                <div class="visiting-card">
+                    <h2 class="card-title">Visiting ID: @visiting.Id</h2>
+                    <p class="card-text">Date: @visiting.Date</p>
+                    <p class="card-text">Patient: @visiting.Patient.name</p>
+                    <p class="card-text">Doctor: @visiting.Doctor.name</p>
+                    
+                    <a href="@Url.Action("VisitingDetails", new { id = visiting.Id })" class="card-link">View Details</a>
+                </div>
+            }
+        }
+        else
+        {
+            <p>No visitings available.</p>
+        }
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+﻿@model List<Appointment>
+
+<style>
+    .appointment-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .appointment-card {
+        flex: 0 0 calc(33.33% - 20px);
+        background-color: #f4f4f4;
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+    .appointment-card h3 {
+        margin-top: 0;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    .button-container button {
+        padding: 5px 10px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .button-container button.edit-button {
+        background-color: #428bca;
+        color: #fff;
+    }
+
+    .button-container button.delete-button {
+        background-color: #d9534f;
+        color: #fff;
+    }
+
+    .button-container button:hover {
+        opacity: 0.8;
+    }
+
+    /* Line between sections */
+    .section-divider {
+        margin: 40px 0;
+        border-bottom: 1px solid #ccc;
+    }
+</style>
+
+<h1>Appointments</h1>
+<div class="section-divider"></div> 
+
+<br>
+<br>
+
+<!-- Visited Appointments Section -->
+<h2>Visited Appointments</h2>
+<div class="appointment-list">
+    @foreach (var appointment in Model)
+    {
+        @if (appointment.isVisited)
+        {
+            <div class="appointment-card">
+                <h3>@appointment.AppointmentDate</h3>
+                <p>Patient Name: @appointment.patient.name</p>
+                <p>Doctor Name: @appointment.doctor.name</p>
+                <p>Reason: @appointment.Reason</p>
+                <p>Visited: Yes</p>
+                
+                <div class="button-container">
+                    <button class="edit-button" onclick="editAppointment(@appointment.Id)">Edit</button>
+                    <button class="delete-button" onclick="deleteAppointment(@appointment.Id)">Delete</button>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+<div class="section-divider"></div> 
+
+<!-- All Appointments Section -->
+<h2>All Appointments</h2>
+<div class="appointment-list">
+    @foreach (var appointment in Model)
+    {
+        @if (!appointment.isVisited)
+        {
+            <div class="appointment-card">
+                <h3>@appointment.AppointmentDate</h3>
+                <p>Patient Name: @appointment.patient.name</p>
+                <p>Doctor Name: @appointment.doctor.name</p>
+                <p>Reason: @appointment.Reason</p>
+               
+                <p>Visited: No</p>
+                
+                <div class="button-container">
+                    <button class="edit-button" onclick="editAppointment(@appointment.Id)">Edit</button>
+                    <button class="delete-button" onclick="deleteAppointment(@appointment.Id)">Delete</button>
+                </div>
+            </div>
+            }
+    }
+</div>
+
+<script>
+    function editAppointment(appointmentId) {
+        // Perform edit action for the specified appointment
+        console.log("Edit appointment with ID: " + appointmentId);
+    }
+
+    function deleteAppointment(appointmentId) {
+        // Perform delete action for the specified appointment
+        console.log("Delete appointment with ID: " + appointmentId);
+    }
+</script>    

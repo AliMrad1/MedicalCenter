@@ -1,0 +1,64 @@
+﻿@model Visiting
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visiting Details</title>
+    <style>
+        .visiting-details {
+                    padding: 20px;
+                    border-radius: 5px;
+                }
+        
+                .visiting-details .image-container {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 20px;
+                    margin-top: 20px;
+                }
+        
+                .visiting-details .image-container img {
+                    max-height: 200px;
+                    object-fit: cover;
+                    border-radius: 5px;
+                }
+        
+                .visiting-details .card-text {
+                    margin-top: 20px;
+                }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Visiting Details</h1>
+
+    <div class="visiting-details">
+        @if (Model != null)
+        {
+            <h2>Visiting ID: @Model.Id</h2>
+            <p>Date: @Model.Date</p>
+            <p>Patient: @Model.Patient.name</p>
+            <p>Doctor: @Model.Doctor.name</p>
+
+            @if (!string.IsNullOrEmpty(Model.Description))
+            {
+                <p>Description: @Model.Description</p>
+            }
+
+            <div class="image-container">
+                @foreach (var fileUrl in Model.FileUrls)
+                {
+                    <img src="@fileUrl" alt="Visiting Image">
+                }
+            </div>
+        }
+        else
+        {
+            <p>No visiting details available.</p>
+        }
+    </div>
+</div>
+
+
+</body>
+</html>

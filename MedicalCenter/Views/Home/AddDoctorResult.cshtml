@@ -1,0 +1,18 @@
+﻿@model AddDoctorResponse
+
+
+<div>
+    <p>the result of add doctor</p>
+
+    <p>@Model.response</p>
+
+    <button onclick="redirect()" class="btn btn-primary rounded-pill">Redirect To Add Doctor Page</button>
+
+</div>
+
+<script>
+
+    function redirect(){
+        window.location.href = '/Home/AddDoctors';
+    }
+</script>
