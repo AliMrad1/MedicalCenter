@@ -1,4 +1,5 @@
-﻿using MedicalCenter.Models;
+﻿using MedicalCenter.exceptions;
+using MedicalCenter.Models;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Data;
@@ -78,6 +79,32 @@ namespace MedicalCenter.Database
             }
             return p;
         }
+
+        public DoctorLogin GetDoctorPhoneNAndPass(string phonenumber)
+        {
+            DoctorLogin p = null;
+            using (SqlConnection connection = new SqlConnection(_CONN_STR))
+            {
+                connection.Open();
+                string sql = $"EXECUTE  [dbo].[GET_Doctor_PHN_PASS] '{phonenumber}';";
+
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            p = new(
+                                    phoneNumber: reader.GetString(0),
+                                    password: reader.GetString(1)
+                                );
+                        }
+                    }
+                }
+            }
+            return p;
+        }
+
 
         public List<Doctor> get_doctors()
         {
@@ -227,7 +254,40 @@ namespace MedicalCenter.Database
             }
         }
 
-      
+      public void UpdateDoctor(Doctor doctor)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(_CONN_STR))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand($"[dbo].[UPDATE_Doctor]", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue("@id", doctor.Id);
+                        command.Parameters.AddWithValue("@name", doctor.Name);
+                        command.Parameters.AddWithValue("@specialization", doctor.Specialization);
+                        command.Parameters.AddWithValue("@sub_specialty", doctor.Sub_specialty);
+                        command.Parameters.AddWithValue("@address", doctor.Address);
+                        command.Parameters.AddWithValue("@dayofweek", string.Join(",", doctor.Hours.DayOfWeek));
+                        command.Parameters.AddWithValue("@time", string.Join(",",doctor.Hours.time));
+                        command.Parameters.AddWithValue("@Hospital", doctor.Hospital);
+                        command.Parameters.AddWithValue("@phonenumber", doctor.PhoneNumber);
+
+                        command.ExecuteNonQuery();
+                    }
+
+                }
+
+            }
+            catch (SqlException e)
+            {
+                throw new DoctorUpdatingFailedException(e.Message);
+            }
+
+        }
 
     }
 }

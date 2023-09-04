@@ -188,5 +188,20 @@ namespace MedicalCenter.Controllers
             }
             
         }
+
+
+        [HttpPost]
+        public IActionResult GetDoctorById(Doctor doctor){
+            try
+            {
+                centerService.UpdateDoctor(doctor);
+                return Ok("Updated Successfully");
+            }
+            catch (Exception e)
+            {
+                return Json(new { success = true, message = "Data Not Found", doctors = doctor });
+                throw;
+            }
+        }
     }
 }

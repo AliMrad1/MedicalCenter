@@ -18,7 +18,7 @@ namespace MedicalCenter.Services
         public string GenerateJwtToken(string phonenumber)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            string key_gen = GenerateRandomKey(256);
+            //string key_gen = GenerateRandomKey(256);
             var key = Encoding.ASCII.GetBytes("abcdefjklmnopqrstuvwxyzsgfdgdgdhggfhfghfghgfjffgfgh");
             
             var tokenDescriptor = new SecurityTokenDescriptor
@@ -116,6 +116,18 @@ namespace MedicalCenter.Services
             var phonenumber = payload["phonenumber"]?.ToString();
 
             return phonenumber;
+        }
+
+        public DateTime ExtractExpiredTime(string token)
+        {
+            var jwtHandler = new JwtSecurityTokenHandler();
+            var jwtToken = jwtHandler.ReadJwtToken(token);
+
+            var expiration = jwtToken.Payload.Exp;
+
+            var expirationDateTime = DateTimeOffset.FromUnixTimeSeconds((Int64)expiration!).DateTime;
+
+            return expirationDateTime;
         }
     }
 }

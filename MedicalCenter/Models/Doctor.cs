@@ -46,4 +46,7 @@ namespace MedicalCenter.Models
 
     public record DoctorAppointment(int id, string name) { }
     public record DoctorTemp(int id, string name) { }
+    public record DoctorLogin(string phoneNumber, string password) { }
+    public record DoctorLoginResponse(string token, DateTime expiredAt) { }
+
 }

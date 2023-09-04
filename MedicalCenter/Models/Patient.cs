@@ -21,7 +21,7 @@
     public record PatientResponse(string msg) { }
 
     public record PatientLogin(string phonenumber, string password) { }
-    public record PatientLoginResponse(string token) { }
+    public record PatientLoginResponse(string token, DateTime expiredAt) { }
 
     public record PatientAppointment(int id, string name, string phonenumber){}
 

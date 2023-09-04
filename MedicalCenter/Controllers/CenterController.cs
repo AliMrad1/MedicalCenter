@@ -40,7 +40,7 @@ namespace MedicalCenter.Controllers
         }
 
         [HttpPost("loginPatient")]
-        public IActionResult login([FromBody] PatientLogin request)
+        public IActionResult loginPatient([FromBody] PatientLogin request)
         {
             try
             {
@@ -63,5 +63,28 @@ namespace MedicalCenter.Controllers
 
         }
 
+        [HttpPost("loginDoctor")]
+        public IActionResult loginDoctor([FromBody] DoctorLogin request)
+        {
+            try
+            {
+                DoctorLoginResponse p = this.centerService.LOGIN_DOCTOR(request);
+                return Ok(p);
+
+            }
+            catch (IncorrectPasswordLoginException e)
+            {
+                return BadRequest(e.Message);
+            }
+            catch (PhoneNumberValidationException e)
+            {
+                return BadRequest(e.Message);
+            }
+            catch (IncorretEmailLoginException e)
+            {
+                return BadRequest(e.Message);
+            }
+
+        }
     }
 }
