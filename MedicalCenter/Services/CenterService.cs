@@ -7,6 +7,7 @@ namespace MedicalCenter.Services
 {
     public class CenterService
     {
+        static string[] roles = {"patient","doctor"};
         private IConfiguration configuration;
         private DALC_SQL _SQL;
         private SendSMS sms;
@@ -88,7 +89,7 @@ namespace MedicalCenter.Services
                     if (EncryptPassword.VerifyPassword(request.password, p.password))
                     {
                         //generate a token and redirect Back to Client
-                        string tokenValue = generateToken.GenerateJwtToken(request.phonenumber);
+                        string tokenValue = generateToken.GenerateJwtToken(request.phonenumber,roles[0]);
                         DateTime expired = generateToken.ExtractExpiredTime(tokenValue);
                         return new PatientLoginResponse(token: tokenValue, expiredAt: expired);
                     }
@@ -118,7 +119,7 @@ namespace MedicalCenter.Services
                     if (EncryptPassword.VerifyPassword(request.password, p.password))
                     {
                         //generate a token and redirect Back to Client
-                        string tokenValue = generateToken.GenerateJwtToken(request.phoneNumber);
+                        string tokenValue = generateToken.GenerateJwtToken(request.phoneNumber,roles[1]);
                         DateTime expired = generateToken.ExtractExpiredTime(tokenValue);
                         return new DoctorLoginResponse(token: tokenValue,expiredAt:expired);
                     }

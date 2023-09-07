@@ -19,4 +19,26 @@ html {
 
 body {
   margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+
+
+.wrapper {
+  flex: 1;
+}
+
+footer {
+  margin-top: auto;
+}
+
+
+
+@media (max-width: 768px) {
+  .banner-text h1 {
+      font-size: 1rem; /* Adjust the font size as needed */
+  }
 }

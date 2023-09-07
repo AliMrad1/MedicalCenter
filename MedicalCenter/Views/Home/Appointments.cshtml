@@ -52,6 +52,9 @@
     }
 </style>
 
+
+
+
 <h1>Appointments</h1>
 <div class="section-divider"></div> 
 
@@ -99,7 +102,7 @@
                 <p>Visited: No</p>
                 
                 <div class="button-container">
-                    <button class="edit-button" onclick="editAppointment(@appointment.Id)">Edit</button>
+                    <button class="edit-button" data-appointment-id="@appointment.Id" onclick="editAppointment(this)">Edit</button>
                     <button class="delete-button" onclick="deleteAppointment(@appointment.Id)">Delete</button>
                 </div>
             </div>
@@ -109,8 +112,8 @@
 
 <script>
     function editAppointment(appointmentId) {
-        // Perform edit action for the specified appointment
-        console.log("Edit appointment with ID: " + appointmentId);
+
+            window.location.href = '/Appointments/Edit?appointmentId=' + appointmentId;
     }
 
     function deleteAppointment(appointmentId) {

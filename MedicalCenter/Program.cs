@@ -7,7 +7,17 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(o => o.TokenValidationParameters = new (){
+    .AddJwtBearer("PatientScheme",o => o.TokenValidationParameters = new (){
+            ValidateIssuer = true, 
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = "blabla",
+            ValidAudience = "blabla", 
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("abcdefjklmnopqrstuvwxyzsgfdgdgdhggfhfghfghgfjffgfgh")) 
+        }
+    )
+    .AddJwtBearer("DoctorScheme",o => o.TokenValidationParameters = new (){
             ValidateIssuer = true, 
             ValidateAudience = true,
             ValidateLifetime = true,
@@ -17,6 +27,23 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("abcdefjklmnopqrstuvwxyzsgfdgdgdhggfhfghfghgfjffgfgh")) 
         }
     );
+
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("PatientPolicy", policy =>
+    {
+        policy.AuthenticationSchemes.Add("PatientScheme");
+        policy.RequireRole("patient");
+    });
+
+    options.AddPolicy("DoctorPolicy", policy =>
+    {
+        policy.AuthenticationSchemes.Add("DoctorScheme");
+        policy.RequireRole("doctor");
+    });
+});
+
 
 var app = builder.Build();
 

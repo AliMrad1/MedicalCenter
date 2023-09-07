@@ -67,5 +67,16 @@ namespace MedicalCenter.Services
             appointments.Sort((a, b) => b.AppointmentDate.CompareTo(a.AppointmentDate));
             return appointments;
         }
+
+        public void UpdateAppointment(AppointmentUpdate appointment){
+            try
+            {
+                this.sQL_Appointment.UpdateAppointment(appointment);
+            }
+            catch (AppointmentReservedFailedException e)
+            {
+                throw new AppointmentReservedFailedException(e.Message);
+            }
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace MedicalCenter.Services
             this._configuration = _configuration;
         }
 
-        public string GenerateJwtToken(string phonenumber)
+        public string GenerateJwtToken(string phonenumber,string role)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             //string key_gen = GenerateRandomKey(256);
@@ -25,7 +25,8 @@ namespace MedicalCenter.Services
             {
                 Subject = new ClaimsIdentity(new[]
                 {
-                new Claim(ClaimTypes.MobilePhone, phonenumber),
+                    new Claim(ClaimTypes.MobilePhone, phonenumber),
+                    new Claim("role", role),
                 }),
                 Expires = DateTime.UtcNow.AddDays(Convert.ToDouble(this._configuration["Jwt:TokenExpirationDays"])),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),

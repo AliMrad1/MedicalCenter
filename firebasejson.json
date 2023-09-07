@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "medicalcenter-3e401",
+  "private_key_id": "20345ae7a25ef422a1102b9d6b4ae25043585c48",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDMCkPDv1HPbkk2\n96P4iFYxnhhOSIUnGs64+OxwG/Q9qaINWGonv4Hqtu9PFy6o/BoujDtolpYWr3tA\neT7/mdyJQd+L+6x9ZlUICB5mtf/f2umFF9CYH2Ag0ZOzq36pMQJCxRmySo4EJc0V\nZqeZK6a+117znFJusbLFGqCeVCX6NTKbhKrDmKXEe5HlRi/uu7u2xeTkw8vPO2qy\nkzyqlF8T+E0ENTy6/q9rVnk13Gc9zWTrnBvH47RGzPoUZz8rpfMMkUw0bx0xveEi\numSGk0nozaQD/jjwGMPzuj6xWvyKStfLVKEEY3bYE1N2E2KcIHsf8u9Cm/5D8MyS\nm/K11c7xAgMBAAECggEABmUT9qCaacvlE4nzY6iyOt/flySCt9UJQZbboi/eGcil\nQZHR0ekYo0iUe4AYgEdWcrsGaaK+lXtue3jRVqV12f9siDCdGVkJtTS77zApEtUD\nmJ5EdWAWXTD0Vh872wWkMn+G7KWVid+9a7xJ6G0LztNlMHFny/xZw/+vpQayIgNW\nfH/muYH3Br8I2FYuyNrGxd0sJeuGJFLITEfr2idKrNzirsHN3GVJAqYQ7fVBKdiH\nXfkFEZDrX3owWhhv5WHBt7ASDFYrtyvtx9tbpmMNzc5C3aKiyHp1+QGXaob7OdLu\n2R5QIqtSTU4Gf3V3NkDAItbKcLKyK05nfOgpl7bkAQKBgQDpIxuvEWm6huo6mY+j\nGUzH6UffCWpObt4X3jlqtl6DpkACOQAknXfmhxZ3kB06PVgouEo95wA2zg5RvriO\nc8DIDEE1Zj6yhseoIxqVP/2AOPvbgDNdAvCDpG+IqSL1F4sOZb60ry4k1f6g4xKw\nnr6fpsI24TS+8uEe/CGHfML7kQKBgQDgDK1hOPPGglvMh+iDe0CidgFi8pKQltbj\nxZ3aq0fzVteB7UvzMtIjYn7f/jbvS4bIOkBJvT6bFdbbphkhKVsvTtv2WYDsnorr\nAPpbJdfSDgkJlkzs/LTIejh2NEpBrU7IpIGTeGxJtESU+bTVa9A8Pb+kQNtMhxTQ\nUnicl/wtYQKBgC7M4W3PbQ4Ir1R8Jx1yorsu1UKsvS5piyP3dEc7vNVotki78I9p\nHPyl+Zie0X8zeVMTS7QJfz2BN9apFptiGT0PWLfDgqqL6+CQy3FSmyz2Q3jYz3bI\ndEe45rrkWSQiScPmINZcpEK4wpjBfKr/8vxRmYMyykfasd5qdsCgBvRBAoGAUeow\npcAl2KkmmQQDrbatbfiJDz0y+uw7SvGggidnWf+hMV6qCxPEoq1LR+fw+9J4R9KM\nWKl5L0hv0sTKoUY2kXhakZotudVJYxxrbFHMs37wLPIn0+mcy0NsS0NY9uQ/Trpe\nqaU4qkXfYTxesj0F2FCXNZ2E0Fj+8h+E+3PR/mECgYEAzCcURn8wANtXKs6QwbqT\nvB+OrBNjywCMNXr5mu9Hgu5HCYmKlVV6OvuwiYbbPMX6ObT8F9B161B1ppKp0Jah\n8VkXmWzrkTjeQh3WEiqKJresFW2K9CL5polyxNJNlI3UkuEr4zVymj+SexizY2AI\nzSZKQJ7FneRNdPdkQUzLgWU=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-y98ns@medicalcenter-3e401.iam.gserviceaccount.com",
+  "client_id": "113300114034127465952",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-y98ns%40medicalcenter-3e401.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

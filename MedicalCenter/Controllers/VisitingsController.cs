@@ -21,7 +21,7 @@ public class VisitingsController : ControllerBase
    }
 
    [HttpPost("make")]
-   [Authorize]
+   [Authorize("PatientPolicy")]
    public async Task<IActionResult> Make_Visiting([FromForm] VisitingRequest request)
    {
       try
@@ -40,7 +40,7 @@ public class VisitingsController : ControllerBase
    }
 
    [HttpGet("all")]
-   [Authorize]
+   [Authorize("PatientPolicy")]
    public IActionResult AllVisitings()
    {
       try

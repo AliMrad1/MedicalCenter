@@ -1,8 +1,46 @@
-﻿@{
+﻿
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to Medical Center</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<head>
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<style>
+    /* Add custom CSS for the banner */
+    .banner {
+        position: relative;
+        text-align: center;
+    }
+
+    .banner img {
+        width: 100%;
+        height: auto;
+    }
+
+    .banner-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+        padding: 20px; /* Add padding for better readability */
+        color: white;
+    }
+
+    /* Media query for mobile screens */
+  
+</style>
+
+<div class="banner">    
+    <img src="https://backpainsa.com/wp-content/uploads/2015/02/bigstock-Medical-physician-doctor-hands-84721406.jpg" alt="Medical Center Image" class="img-fluid">
+    <div class="banner-text">
+        <h1 class="display-4">Welcome to Medical Center</h1>
+        <p class="d-none d-md-block">Providing Quality Healthcare Services</p>
+        <p class="d-none d-md-block">At Medical Center, we are dedicated to delivering top-notch healthcare services to our patients.</p>
+        <p class="d-none d-md-block">Our experienced team of physicians and staff are committed to your well-being and ensuring you receive the best possible care.</p>
+        <p class="d-none d-md-block">Explore our website to learn more about our services and how we can serve your healthcare needs.</p>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>
 </div>

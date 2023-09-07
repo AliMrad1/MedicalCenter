@@ -5657,26 +5657,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ali\\.nuget\\packages\\": {}
+    "/home/alimrad/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ali\\Documents\\MedicalCenter\\MedicalCenter\\MedicalCenter.csproj",
+      "projectUniqueName": "/home/alimrad/Documents/MedicalCenter/MedicalCenter/MedicalCenter.csproj",
       "projectName": "MedicalCenter",
-      "projectPath": "C:\\Users\\ali\\Documents\\MedicalCenter\\MedicalCenter\\MedicalCenter.csproj",
-      "packagesPath": "C:\\Users\\ali\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ali\\Documents\\MedicalCenter\\MedicalCenter\\obj\\",
+      "projectPath": "/home/alimrad/Documents/MedicalCenter/MedicalCenter/MedicalCenter.csproj",
+      "packagesPath": "/home/alimrad/.nuget/packages/",
+      "outputPath": "/home/alimrad/Documents/MedicalCenter/MedicalCenter/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ali\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/home/alimrad/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -5743,7 +5741,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/7.0.110/RuntimeIdentifierGraph.json"
       }
     }
   }

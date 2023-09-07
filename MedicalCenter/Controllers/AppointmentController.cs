@@ -22,7 +22,7 @@ namespace MedicalCenter.Controllers
         }
 
         [HttpPost("reserve")]
-        [Authorize]
+        [Authorize("PatientPolicy")]
         public async Task<IActionResult> Reserve_Appoitment(AppointmentRequest request)
         {
             try
@@ -38,11 +38,35 @@ namespace MedicalCenter.Controllers
         }
 
         [HttpGet("datesreserved")]
-        [Authorize]
+        [Authorize("PatientPolicy")]
         public List<TimeSpan> TimesReservedPerDate([FromQuery(Name = "date")] string dateString)
         {
             DateTime datec = DateTime.ParseExact(dateString, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             return _service.appointmentTimePerDay(datec);   
+        }
+
+        [HttpPut("update")]
+        [Authorize("PatientPolicy")]
+        public IActionResult UpdateAppointment([FromBody] AppointmentUpdate appointment){
+            try
+            {
+
+                 this._service.UpdateAppointment(appointment);
+                 return Ok(new AppointmentResponse(
+                    status:"Success",
+                    message:"Appointment Update Successfully",
+                    date_time:DateTime.Now
+                ));
+            }
+            catch (AppointmentReservedFailedException e)
+            {
+                return BadRequest(new AppointmentResponse(
+                    status:"Failure",
+                    message:e.Message,
+                    date_time:DateTime.Now
+                ));
+            }
+           
         }
     }
 }

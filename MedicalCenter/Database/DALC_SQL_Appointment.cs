@@ -119,5 +119,31 @@ namespace MedicalCenter.Database
             return appointments;
 
         }
+
+        public int UpdateAppointment(AppointmentUpdate appointment){
+               try
+            {
+                using (SqlConnection connection = new SqlConnection(_CONN_STR))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("[dbo].[UPDATE_APPOINTMENT]", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@Appointment_Id", appointment.Id);
+                        command.Parameters.AddWithValue("@Patient_Id", appointment.patient.id);                        
+                        command.Parameters.AddWithValue("@AppointmentDateParam", appointment.AppointmentDate);
+                        command.Parameters.AddWithValue("@Doctor_Id", appointment.doctor.id);
+                        command.Parameters.AddWithValue("@Reason", appointment.Reason);
+
+                        return command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
+                throw new AppointmentReservedFailedException(e.Message);
+            }
+        }
     }
 }
