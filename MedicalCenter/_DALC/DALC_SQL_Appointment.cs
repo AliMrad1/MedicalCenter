@@ -193,6 +193,30 @@ namespace MedicalCenter.Database
         }
 
 
+        public int DeleteAppointmentById(int appointmentId){
+               try
+            {
+                using (SqlConnection connection = new SqlConnection(_CONN_STR))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("[dbo].[DeleteAppointmentById]", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@AppointmentId", appointmentId);
+
+                        return command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
+                throw new AppointmentDeleteFailedException(e.Message);
+            }
+        }
+
+
+
         public int CancelAppointment(int id)
         {
             try

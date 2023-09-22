@@ -112,11 +112,11 @@
 
 <script>
     function editAppointment(appointmentId) {
-        window.location.href = '/Appointments/Edit?appointmentId=' + appointmentId;
+        window.location.href = '/Home/Edit?appointmentId=' + appointmentId;
     }
 
     function deleteAppointment(appointmentId) {
         // Perform delete action for the specified appointment
-        console.log("Delete appointment with ID: " + appointmentId);
+        window.location.href = '/Home/Delete?appointmentId=' + appointmentId;
     }
 </script>    

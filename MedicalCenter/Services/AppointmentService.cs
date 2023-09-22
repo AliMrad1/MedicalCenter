@@ -111,5 +111,18 @@ namespace MedicalCenter.Services
         {
             return sQL_Appointment.GET_APPOINTMENTS_By_ID(appointmentId);
         }
+
+        public void DeleteAppointmentById(int appointmentId)
+        {
+            try
+            {
+                sQL_Appointment.DeleteAppointmentById(appointmentId);
+            }
+            catch (AppointmentDeleteFailedException e)
+            {
+                
+                throw new AppointmentDeleteFailedException(e.Message);
+            }
+        }
     }
 }

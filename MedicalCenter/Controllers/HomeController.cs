@@ -5,6 +5,7 @@ using System.Diagnostics;
 using MedicalCenter.Database;
 using Microsoft.IdentityModel.Tokens;
 using MedicalCenter.Services;
+using MedicalCenter.exceptions;
 
 namespace MedicalCenter.Controllers
 {
@@ -210,5 +211,58 @@ namespace MedicalCenter.Controllers
             var appointment = appointmentService.GetAppointmentById(appointmentId);
             return View("Edit", appointment);
         }
+
+        [HttpPost]
+        public IActionResult EditAppointment(Appointment appointment)
+        {
+            try
+            {
+                 if (ModelState.IsValid)
+                {
+                    var up = new AppointmentUpdate()
+                    {
+                        Id = appointment.Id,
+                        AppointmentDate = appointment.AppointmentDate.ToString(),
+                        patient = new PatientAppointment {
+                            id = appointment.patient.id,
+                            name = appointment.patient.name,
+                            phonenumber = appointment.patient.phonenumber
+                        },
+                        doctor = new DoctorAppointment {
+                            id = appointment.doctor.id,
+                            name = appointment.doctor.name
+                        },
+                        Reason = appointment.Reason
+
+                    };
+                    appointmentService.UpdateAppointment(up);                
+                    return View("/Home/Appointments");
+                }
+
+                return View(appointment);
+            }
+            catch (AppointmentReservedFailedException e)
+            {
+                
+                return View("Error");
+            }
+           
+        }
+
+
+        public IActionResult Delete(int appointmentId)
+        {
+            try
+            {
+                appointmentService.DeleteAppointmentById(appointmentId);
+                return View("DeleteConfirmation");
+            }
+            catch (AppointmentDeleteFailedException e)
+            {
+                
+                return View("Error");
+            }
+        }
+
     }
 }
