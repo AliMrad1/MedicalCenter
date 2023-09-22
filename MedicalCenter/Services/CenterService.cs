@@ -147,5 +147,26 @@ namespace MedicalCenter.Services
                 throw new DoctorUpdatingFailedException(e.Message);
             }
         }
+
+        public List<Doctor> GetDoctors()
+        {
+            _SQL.get_doctors().Sort((x,y) => string.Compare(x.Name, y.Name));
+            return _SQL.get_doctors();
+        }
+
+        public Doctor Get_Doctor_By_PhoneNumber(string phoneNumber)
+        {
+            return _SQL.GET_DoctorByPhoneNumber(phoneNumber);
+        }
+
+        public Patient Get_Patient_By_PhoneNumber(string phoneNumber)
+        {
+            return _SQL.GET_PatientByPhoneNumber(phoneNumber);
+        }
+
+        public List<String> GetDoctors_Spcialities()
+        {
+            return _SQL.GetDoctorsSpcialities();
+        }
     }
 }

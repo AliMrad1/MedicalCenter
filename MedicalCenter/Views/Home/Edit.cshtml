@@ -1,0 +1,49 @@
+﻿@model Appointment
+
+<h2>Edit Appointment</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.Id) <!-- Hidden field for appointmentId -->
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.AppointmentDate)
+        @Html.TextBoxFor(model => model.AppointmentDate, new { @class = "form-control" })
+    </div>
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.patient.name)
+        @Html.TextBoxFor(model => model.patient.name, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.doctor.name)
+        @Html.TextBoxFor(model => model.doctor.name, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Reason)
+        @Html.TextBoxFor(model => model.Reason, new { @class = "form-control" })
+    </div>
+
+ 
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.isVisited)
+        <div class="checkbox">
+            <label>
+                @Html.CheckBoxFor(model => model.isVisited)
+                @Html.DisplayNameFor(model => model.isVisited)
+            </label>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.createdAt)
+        @Html.TextBoxFor(model => model.createdAt, new { @class = "form-control" })
+    </div>
+    <!-- Add more input fields for other appointment properties as needed -->
+    
+    <button type="submit" class="btn btn-primary">Save</button>
+}

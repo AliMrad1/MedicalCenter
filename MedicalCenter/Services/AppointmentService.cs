@@ -1,4 +1,5 @@
 ﻿using MedicalCenter.Database;
+using MedicalCenter.exceptions;
 using MedicalCenter.Models;
 
 namespace MedicalCenter.Services
@@ -77,6 +78,38 @@ namespace MedicalCenter.Services
             {
                 throw new AppointmentReservedFailedException(e.Message);
             }
+        }
+
+        public void CancelAppointment(int id)
+        {
+            try
+            {
+                this.sQL_Appointment.CancelAppointment(id);
+            }
+            catch (AppointmentCancelFailedException e)
+            {
+                throw new AppointmentCancelFailedException(e.Message);
+            }
+        }
+
+        public List<Appointment> GET_APPOINTMENTS_Patient(string phoneNumber)
+        {
+
+            List<Appointment> appointments = this.sQL_Appointment.GET_APPOINTMENTS_Patient(phoneNumber);
+            appointments.Sort((a, b) => b.AppointmentDate.CompareTo(a.AppointmentDate));
+            return appointments;
+        }
+
+        public List<Appointment> GET_APPOINTMENTS_Doctor(string phoneNumber)
+        {
+            List<Appointment> appointments = this.sQL_Appointment.GET_APPOINTMENTS_Doctor(phoneNumber);
+            appointments.Sort((a, b) => b.AppointmentDate.CompareTo(a.AppointmentDate));
+            return appointments;
+        }
+
+        public Appointment GetAppointmentById(int appointmentId)
+        {
+            return sQL_Appointment.GET_APPOINTMENTS_By_ID(appointmentId);
         }
     }
 }

@@ -9,6 +9,9 @@
       "MedicalCenter/1.0.0": {
         "dependencies": {
           "BCrypt.Net-Next": "4.0.3",
+          "FirebaseAdmin": "2.3.0",
+          "Google.Cloud.Storage.V1": "4.6.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.5",
           "Microsoft.Data.SqlClient": "5.1.1",
           "Twilio": "6.7.0",
           "Vonage": "6.3.3"
@@ -19,7 +22,7 @@
       },
       "Azure.Core/1.25.0": {
         "dependencies": {
-          "Microsoft.Bcl.AsyncInterfaces": "1.1.1",
+          "Microsoft.Bcl.AsyncInterfaces": "6.0.0",
           "System.Diagnostics.DiagnosticSource": "6.0.0",
           "System.Memory.Data": "1.0.2",
           "System.Numerics.Vectors": "4.5.0",
@@ -67,6 +70,106 @@
           }
         }
       },
+      "FirebaseAdmin/2.3.0": {
+        "dependencies": {
+          "Google.Api.Gax.Rest": "4.4.0",
+          "Google.Apis.Auth": "1.60.0",
+          "System.Collections.Immutable": "1.7.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/FirebaseAdmin.dll": {
+            "assemblyVersion": "2.3.0.0",
+            "fileVersion": "2.3.0.0"
+          }
+        }
+      },
+      "Google.Api.Gax/4.4.0": {
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "6.0.0",
+          "Newtonsoft.Json": "13.0.3"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Google.Api.Gax.dll": {
+            "assemblyVersion": "4.4.0.0",
+            "fileVersion": "4.4.0.0"
+          }
+        }
+      },
+      "Google.Api.Gax.Rest/4.4.0": {
+        "dependencies": {
+          "Google.Api.Gax": "4.4.0",
+          "Google.Apis.Auth": "1.60.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Google.Api.Gax.Rest.dll": {
+            "assemblyVersion": "4.4.0.0",
+            "fileVersion": "4.4.0.0"
+          }
+        }
+      },
+      "Google.Apis/1.60.0": {
+        "dependencies": {
+          "Google.Apis.Core": "1.60.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.dll": {
+            "assemblyVersion": "1.60.0.0",
+            "fileVersion": "1.60.0.0"
+          }
+        }
+      },
+      "Google.Apis.Auth/1.60.0": {
+        "dependencies": {
+          "Google.Apis": "1.60.0",
+          "Google.Apis.Core": "1.60.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.Auth.PlatformServices.dll": {
+            "assemblyVersion": "1.60.0.0",
+            "fileVersion": "1.60.0.0"
+          },
+          "lib/netstandard2.0/Google.Apis.Auth.dll": {
+            "assemblyVersion": "1.60.0.0",
+            "fileVersion": "1.60.0.0"
+          }
+        }
+      },
+      "Google.Apis.Core/1.60.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.Core.dll": {
+            "assemblyVersion": "1.60.0.0",
+            "fileVersion": "1.60.0.0"
+          }
+        }
+      },
+      "Google.Apis.Storage.v1/1.60.0.2981": {
+        "dependencies": {
+          "Google.Apis": "1.60.0",
+          "Google.Apis.Auth": "1.60.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.Storage.v1.dll": {
+            "assemblyVersion": "1.60.0.2981",
+            "fileVersion": "1.60.0.2981"
+          }
+        }
+      },
+      "Google.Cloud.Storage.V1/4.6.0": {
+        "dependencies": {
+          "Google.Api.Gax.Rest": "4.4.0",
+          "Google.Apis.Storage.v1": "1.60.0.2981"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Google.Cloud.Storage.V1.dll": {
+            "assemblyVersion": "4.6.0.0",
+            "fileVersion": "4.6.0.0"
+          }
+        }
+      },
       "Handy.DotNETCore-Compatibility.ColorTranslations/0.2.1": {
         "runtime": {
           "lib/netstandard1.4/ColorTranslations.dll": {
@@ -88,17 +191,28 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Authentication.JwtBearer/7.0.5": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "6.24.0"
+        },
+        "runtime": {
+          "lib/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "assemblyVersion": "7.0.5.0",
+            "fileVersion": "7.0.523.17410"
+          }
+        }
+      },
       "Microsoft.AspNetCore.WebUtilities/2.2.0": {
         "dependencies": {
           "Microsoft.Net.Http.Headers": "2.2.0",
           "System.Text.Encodings.Web": "7.0.0"
         }
       },
-      "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
+      "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
         "runtime": {
           "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "4.700.20.21406"
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
           }
         }
       },
@@ -412,6 +526,7 @@
           "System.Threading.Tasks": "4.3.0"
         }
       },
+      "System.Collections.Immutable/1.7.1": {},
       "System.Collections.NonGeneric/4.3.0": {
         "dependencies": {
           "System.Diagnostics.Debug": "4.3.0",
@@ -885,6 +1000,62 @@
       "path": "enums.net/4.0.1",
       "hashPath": "enums.net.4.0.1.nupkg.sha512"
     },
+    "FirebaseAdmin/2.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ror9V68bFWdr3VXoCPQrAAJ1ZA8dyLzIHJvy53BmoD83Ze9VuWC9hPBicPqqOANP3VTMWnylC7xci59UEMuU4A==",
+      "path": "firebaseadmin/2.3.0",
+      "hashPath": "firebaseadmin.2.3.0.nupkg.sha512"
+    },
+    "Google.Api.Gax/4.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vkqxzz54dRdl3uUmz0hOhMfR9EjGrWJI+SeOl3UC1Gr/mHfHOwYiRPnJbub+77/xS0lAJBs02iOh3ay9zgzW4Q==",
+      "path": "google.api.gax/4.4.0",
+      "hashPath": "google.api.gax.4.4.0.nupkg.sha512"
+    },
+    "Google.Api.Gax.Rest/4.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-L4sJluVTLMy5cqFR439c2UNuWU20Wqh6yatY455rRwRlfdQlCc7Z4TdYphj2qH3cLo5NCPGQM37r/uQDLzF3eA==",
+      "path": "google.api.gax.rest/4.4.0",
+      "hashPath": "google.api.gax.rest.4.4.0.nupkg.sha512"
+    },
+    "Google.Apis/1.60.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-T8ojAsKlsMkt5nZhTQuocqHYzm/knVm8o2/JMm4louEjaKzT4x0FihoCIxCYSTRGWkYC27LPWspyG4p76+bMzA==",
+      "path": "google.apis/1.60.0",
+      "hashPath": "google.apis.1.60.0.nupkg.sha512"
+    },
+    "Google.Apis.Auth/1.60.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AUuWniIf2muns/9hesiF7yCKeQN+PbdTU864Rb2wDzW4xmepO6tEnoqREPeow95qIAgkOlL/byKeU65d3ox5Ng==",
+      "path": "google.apis.auth/1.60.0",
+      "hashPath": "google.apis.auth.1.60.0.nupkg.sha512"
+    },
+    "Google.Apis.Core/1.60.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NOkjqMQblYEZXt2OEgshWayveYW11Pi+Uz0I30Kzl9BvL4TZLJzMqtiu1EdV8XkyyjGuAUgANdi4BOqRDlbVEw==",
+      "path": "google.apis.core/1.60.0",
+      "hashPath": "google.apis.core.1.60.0.nupkg.sha512"
+    },
+    "Google.Apis.Storage.v1/1.60.0.2981": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YcUvDcg0hV5hAFPYwLwg15pmObxjJEhH/9mkiNxpQ/vYfwPfIH/s2PeIEzdnDkQlE4kPyoJdA9cIYIXnC1s5Qg==",
+      "path": "google.apis.storage.v1/1.60.0.2981",
+      "hashPath": "google.apis.storage.v1.1.60.0.2981.nupkg.sha512"
+    },
+    "Google.Cloud.Storage.V1/4.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pNV9H+LElfumLs7k8GDf8vltQ+fpq59oklCncBu5FPTzmwNGryT3VMaTU8+xV3VnWN44vNyPYz1tiOiF0F/5Xw==",
+      "path": "google.cloud.storage.v1/4.6.0",
+      "hashPath": "google.cloud.storage.v1.4.6.0.nupkg.sha512"
+    },
     "Handy.DotNETCore-Compatibility.ColorTranslations/0.2.1": {
       "type": "package",
       "serviceable": true,
@@ -899,6 +1070,13 @@
       "path": "jose-jwt/4.1.0",
       "hashPath": "jose-jwt.4.1.0.nupkg.sha512"
     },
+    "Microsoft.AspNetCore.Authentication.JwtBearer/7.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dS6LPC7ZwJUcxcnB7KBh5L7iO9dbzEuVrNv2YrtiUCclcvBCfCJ/UKlvgHedjd4VcB6bzHcj3sEmFZlfH6qH0Q==",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/7.0.5",
+      "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.7.0.5.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.WebUtilities/2.2.0": {
       "type": "package",
       "serviceable": true,
@@ -906,12 +1084,12 @@
       "path": "microsoft.aspnetcore.webutilities/2.2.0",
       "hashPath": "microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512"
     },
-    "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
+    "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-yuvf07qFWFqtK3P/MRkEKLhn5r2UbSpVueRziSqj0yJQIKFwG1pq9mOayK3zE5qZCTs0CbrwL9M6R8VwqyGy2w==",
-      "path": "microsoft.bcl.asyncinterfaces/1.1.1",
-      "hashPath": "microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512"
+      "sha512": "sha512-UcSjPsst+DfAdJGVDsu346FX0ci0ah+lw3WRtn18NUwEqRt70HaOQ7lI72vy3+1LxtqI3T5GWwV39rQSrCzAeg==",
+      "path": "microsoft.bcl.asyncinterfaces/6.0.0",
+      "hashPath": "microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512"
     },
     "Microsoft.CSharp/4.5.0": {
       "type": "package",
@@ -1234,6 +1412,13 @@
       "sha512": "sha512-ztl69Xp0Y/UXCL+3v3tEU+lIy+bvjKNUmopn1wep/a291pVPK7dxBd6T7WnlQqRog+d1a/hSsgRsmFnIBKTPLQ==",
       "path": "system.collections.concurrent/4.3.0",
       "hashPath": "system.collections.concurrent.4.3.0.nupkg.sha512"
+    },
+    "System.Collections.Immutable/1.7.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-B43Zsz5EfMwyEbnObwRxW5u85fzJma3lrDeGcSAV1qkhSRTNY5uXAByTn9h9ddNdhM+4/YoLc/CI43umjwIl9Q==",
+      "path": "system.collections.immutable/1.7.1",
+      "hashPath": "system.collections.immutable.1.7.1.nupkg.sha512"
     },
     "System.Collections.NonGeneric/4.3.0": {
       "type": "package",

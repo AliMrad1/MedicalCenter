@@ -49,4 +49,10 @@ namespace MedicalCenter.Models
     public record DoctorLogin(string phoneNumber, string password) { }
     public record DoctorLoginResponse(string token, DateTime expiredAt) { }
 
+    public record DoctorResponse(string status, string message, DateTime date_time)
+    {
+       
+    }
+
+
 }

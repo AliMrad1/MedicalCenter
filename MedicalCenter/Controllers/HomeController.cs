@@ -204,7 +204,11 @@ namespace MedicalCenter.Controllers
             }
         }
 
-        
 
+        public IActionResult Edit(int appointmentId)
+        {
+            var appointment = appointmentService.GetAppointmentById(appointmentId);
+            return View("Edit", appointment);
+        }
     }
 }
