@@ -80,6 +80,18 @@ namespace MedicalCenter.Services
             }
         }
 
+        public void UpdateAppointment_Admin(Appointment appointment)
+        {
+            try
+            {
+                this.sQL_Appointment.UpdateAppointment_Admin(appointment);
+            }
+            catch (AppointmentReservedFailedException e)
+            {
+                throw new AppointmentReservedFailedException(e.Message);
+            }
+        }
+
         public void CancelAppointment(int id)
         {
             try

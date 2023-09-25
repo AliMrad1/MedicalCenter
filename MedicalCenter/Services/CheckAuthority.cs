@@ -9,7 +9,7 @@ namespace MedicalCenter.Services
 
         public static bool isAuthorize(Claim phoneNumberClaim, string phoneNumber,  Claim roleClaim, string role)
         {
-            if (roleClaim.Value != null && roleClaim.Value == role)
+            if(roleClaim.Value != null && role == "*")
             {
                 if (phoneNumberClaim.Value != null && phoneNumberClaim.Value == phoneNumber)
                 {
@@ -18,12 +18,27 @@ namespace MedicalCenter.Services
                 else
                 {
                     return false;
+                }
+            }
+            else
+            {
+                if (roleClaim.Value != null && roleClaim.Value == role)
+                {
+                    if (phoneNumberClaim.Value != null && phoneNumberClaim.Value == phoneNumber)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+
+                    }
 
                 }
 
+                return false;
             }
 
-            return false;
         }
        
     }

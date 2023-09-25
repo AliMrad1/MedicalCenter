@@ -1,7 +1,7 @@
 C:\Users\ali\Documents\MedicalCenter\MedicalCenter\bin\Release\net7.0\publish\MedicalCenter.exe
 C:\Users\ali\Documents\MedicalCenter\MedicalCenter\bin\Release\net7.0\publish\appsettings.Development.json
 C:\Users\ali\Documents\MedicalCenter\MedicalCenter\bin\Release\net7.0\publish\appsettings.json
-C:\Users\ali\Documents\MedicalCenter\MedicalCenter\bin\Release\net7.0\publish\Services\adminsdkfirebase.json
+C:\Users\ali\Documents\MedicalCenter\MedicalCenter\bin\Release\net7.0\publish\Services\medicalcenter-3e401-firebase-adminsdk-y98ns-e42f1da76c.json
 C:\Users\ali\Documents\MedicalCenter\MedicalCenter\bin\Release\net7.0\publish\MedicalCenter.dll
 C:\Users\ali\Documents\MedicalCenter\MedicalCenter\bin\Release\net7.0\publish\MedicalCenter.deps.json
 C:\Users\ali\Documents\MedicalCenter\MedicalCenter\bin\Release\net7.0\publish\MedicalCenter.runtimeconfig.json

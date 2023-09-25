@@ -6,6 +6,8 @@ using MedicalCenter.Database;
 using Microsoft.IdentityModel.Tokens;
 using MedicalCenter.Services;
 using MedicalCenter.exceptions;
+using MedicalCenter.Models;
+
 
 namespace MedicalCenter.Controllers
 {
@@ -217,31 +219,11 @@ namespace MedicalCenter.Controllers
         {
             try
             {
-                 if (ModelState.IsValid)
-                {
-                    var up = new AppointmentUpdate()
-                    {
-                        Id = appointment.Id,
-                        AppointmentDate = appointment.AppointmentDate.ToString(),
-                        patient = new PatientAppointment {
-                            id = appointment.patient.id,
-                            name = appointment.patient.name,
-                            phonenumber = appointment.patient.phonenumber
-                        },
-                        doctor = new DoctorAppointment {
-                            id = appointment.doctor.id,
-                            name = appointment.doctor.name
-                        },
-                        Reason = appointment.Reason
-
-                    };
-                    appointmentService.UpdateAppointment(up);                
-                    return View("/Home/Appointments");
-                }
-
-                return View(appointment);
+              
+                appointmentService.UpdateAppointment_Admin(appointment);                
+                return RedirectToAction("Appointments"); 
             }
-            catch (AppointmentReservedFailedException e)
+            catch (AppointmentReservedFailedException)
             {
                 
                 return View("Error");

@@ -20,3 +20,7 @@ public class VisitingRequest
     public int Appointment_Id { get; set; }
     
 }
+
+
+
+public record VisitingResponse(string status, string message, DateTime date_time) { }

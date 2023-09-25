@@ -11,15 +11,20 @@
         @Html.TextBoxFor(model => model.AppointmentDate, new { @class = "form-control" })
     </div>
     
-    <div class="form-group">
-        @Html.LabelFor(model => model.patient.name)
-        @Html.TextBoxFor(model => model.patient.name, new { @class = "form-control" })
-    </div>
+    @Html.HiddenFor(model => model.patient.id) 
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.doctor.name)
-        @Html.TextBoxFor(model => model.doctor.name, new { @class = "form-control" })
+    <div class="form-group" >
+        @Html.LabelFor(model => model.patient.name)
+        @Html.TextBoxFor(model => model.patient.name, new { @class = "form-control",@disabled = "disabled" })
     </div>
+    @Html.HiddenFor(model => model.patient.phonenumber)
+
+
+    @Html.HiddenFor(model => model.doctor.id)
+
+    @Html.HiddenFor(model => model.doctor.name)
+
+
 
     <div class="form-group">
         @Html.LabelFor(model => model.Reason)
@@ -39,10 +44,7 @@
     </div>
 
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.createdAt)
-        @Html.TextBoxFor(model => model.createdAt, new { @class = "form-control" })
-    </div>
+
     <!-- Add more input fields for other appointment properties as needed -->
     
     <button type="submit" class="btn btn-primary">Save</button>

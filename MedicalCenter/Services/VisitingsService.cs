@@ -62,4 +62,17 @@ public class VisitingsService
             throw new VisitingsLoadFailedException(e.Message);
         }
     }
+
+    public Visiting GetVisitingById(int id, string phoneNumber)
+    {
+        try
+        {
+            Visiting visiting = this._sqlVisitings.Get_PatientOrDoctor_VisitingsBYID(id,phoneNumber);
+            return visiting;
+        }
+        catch (VisitingsLoadFailedException e)
+        {
+            throw new VisitingsLoadFailedException(e.Message);
+        }
+    }
 }

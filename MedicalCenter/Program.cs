@@ -26,6 +26,17 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidAudience = "blabla", 
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("abcdefjklmnopqrstuvwxyzsgfdgdgdhggfhfghfghgfjffgfgh")) 
         }
+    )
+     .AddJwtBearer("CombinedPolicy", o => o.TokenValidationParameters = new()
+     {
+         ValidateIssuer = true,
+         ValidateAudience = true,
+         ValidateLifetime = true,
+         ValidateIssuerSigningKey = true,
+         ValidIssuer = "blabla",
+         ValidAudience = "blabla",
+         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("abcdefjklmnopqrstuvwxyzsgfdgdgdhggfhfghfghgfjffgfgh"))
+     }
     );
 
 
@@ -41,6 +52,13 @@ builder.Services.AddAuthorization(options =>
     {
         policy.AuthenticationSchemes.Add("DoctorScheme");
         policy.RequireRole("doctor");
+    });
+
+    options.AddPolicy("CombinedPolicy", policy =>
+    {
+        policy.AuthenticationSchemes.Add("CombinedPolicy");
+        policy.RequireRole("patient", "doctor");
+        
     });
 });
 

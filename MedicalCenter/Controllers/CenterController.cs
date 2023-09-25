@@ -30,15 +30,30 @@ namespace MedicalCenter.Controllers
         {
             try{
                 await this.centerService.ADD_Patient(request);
-                return Ok("Add Successfully");
+                return Ok(new
+                {
+                    status = Status.Success.ToString(),
+                    message = "Add Successfully",
+                    date_time = DateTime.Now.ToString()
+                });
 
             }
             catch(PatientInsertingFailedException e){
-                return BadRequest(e.Message);
+                return BadRequest(new
+                {
+                    status = Status.Failure.ToString(),
+                    message = e.Message,
+                    date_time = DateTime.Now.ToString()
+                });
             }
             catch (PhoneNumberValidationException e)
             {
-                return BadRequest(e.Message);
+                return BadRequest(new
+                {
+                    status = Status.Failure.ToString(),
+                    message = e.Message,
+                    date_time = DateTime.Now.ToString()
+                });
             }
         }
 

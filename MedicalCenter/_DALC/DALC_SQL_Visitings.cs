@@ -167,20 +167,24 @@ public class DALC_SQL_Visitings
                     }
                 }
 
-                using (SqlCommand command = new SqlCommand( "[dbo].[GetAttachmentVisitingByID]", connection))
+                if(v != null)
                 {
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@ID", id); // get value from sequence
-                    
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (SqlCommand command = new SqlCommand("[dbo].[GetAttachmentVisitingByID]", connection))
                     {
-                        
-                        while (reader.Read())
-                        {   
-                            urls.Add(reader.GetString(0));
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@ID", id); // get value from sequence
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+
+                            while (reader.Read())
+                            {
+                                urls.Add(reader.GetString(0));
+                            }
                         }
                     }
                 }
+                
             }
 
             v.FileUrls = urls.ToArray();
@@ -191,6 +195,83 @@ public class DALC_SQL_Visitings
             throw new VisitingsLoadFailedException(e.Message);
         }
         
+
+    }
+
+
+    public Visiting Get_PatientOrDoctor_VisitingsBYID(int id,string phoneNumber)
+    {
+        Visiting v = null;
+        List<string> urls = new List<string>();
+
+        try
+        {
+            using (SqlConnection connection = new SqlConnection(_connStr))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand("[dbo].[Get_Patient_OR_Doctor_VisitingsByID]", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@ID", id); // get value from sequence
+                    command.Parameters.AddWithValue("@PhoneNumber", phoneNumber); // get value from sequence
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+
+                        while (reader.Read())
+                        {
+                            v = new()
+                            {
+                                Id = (int)reader.GetInt64(0),
+                                Date = reader.GetDateTime(1),
+                                Patient = new
+                                (
+                                    id: (int)reader.GetInt64(2),
+                                    name: reader.GetString(3)
+                                ),
+                                Doctor = new
+                                (
+                                    id: (int)reader.GetInt64(4),
+                                    name: reader.GetString(5)
+                                ),
+                                Description = reader.GetString(6),
+                                FileUrls = Array.Empty<string>()
+                            };
+
+                        }
+                    }
+                }
+                if( v != null)
+                {
+                    using (SqlCommand command = new SqlCommand("[dbo].[GetAttachmentVisitingByID]", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@ID", id); // get value from sequence
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+
+                            while (reader.Read())
+                            {
+                                urls.Add(reader.GetString(0));
+                            }
+                        }
+                    }
+
+                    v.FileUrls = urls.ToArray();
+
+                }
+
+            }
+
+            return v;
+        }
+        catch (VisitingsLoadFailedException e)
+        {
+            throw new VisitingsLoadFailedException(e.Message);
+        }
+
 
     }
 }
