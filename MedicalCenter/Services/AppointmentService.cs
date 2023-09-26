@@ -19,7 +19,8 @@ namespace MedicalCenter.Services
 
         public async Task reserveAnAppointment(AppointmentRequest appointment)
         {
-            // check if appointment date is available
+            checkIfAppDateMatchDoctorDate(appointment);
+          
             // store appoitment
             try
             {
@@ -28,6 +29,21 @@ namespace MedicalCenter.Services
                 string msg_text = $"the appoitment has been reserved for you in" +
                     $" {appointment.AppointmentDate.ToString()} ";
                 await this.sendSMS.Send(appointment.patient.phonenumber, msg_text);
+
+
+                TimeSpan timeDifference = appointment.AppointmentDate - DateTime.Now;
+                Console.WriteLine(timeDifference);
+                TimeSpan delay = TimeSpan.FromDays(timeDifference.Days - 1);
+
+                await Task.Run(async () =>
+                {
+                    await Task.Delay(delay);
+                    // send sms after few days
+                    string msg_text = $"Remember You have Appointment Tomorrow " +
+                    $" {appointment.AppointmentDate.ToString()} with Doctor ${appointment.doctor.name}";
+                    await this.sendSMS.Send(appointment.patient.phonenumber, msg_text);
+                });
+
 
             }
             catch (AppointmentReservedFailedException e) when(e.Message.Contains("KEY constraint \'aD_appointment_uq_ck\'"))
@@ -41,6 +57,54 @@ namespace MedicalCenter.Services
 
                 //trow exception
                 throw new AppointmentReservedFailedException(e.Message);
+            }
+        }
+
+        private void checkIfAppDateMatchDoctorDate(AppointmentRequest appointment)
+        {
+            var dayOfWeek = appointment.AppointmentDate.DayOfWeek.ToString();
+            var hour_app = appointment.AppointmentDate.Hour.ToString();
+
+            DoctorDaysHours doctor = sQL_Appointment.GET_Doctor_Days_Hours(appointment.doctor.id);
+
+            bool foundDay = false;
+            bool foundHour = false;
+
+            foreach (var day in doctor.hours.DayOfWeek)
+            {
+                if (day == dayOfWeek)
+                {
+                    foundDay = true; 
+
+                    foreach (var hour in doctor.hours.time)
+                    {
+                        var hours_spliting = hour.Split("-");
+                        int hour_app_int = Convert.ToInt32(hour_app);
+                        int hours_spliting_lower = Convert.ToInt32(hours_spliting[0]);
+                        int hours_spliting_bigger = Convert.ToInt32(hours_spliting[1]);
+
+                        if (hour_app_int >= hours_spliting_lower && hour_app_int <= hours_spliting_bigger)
+                        {
+                            foundHour = true;
+                            break; 
+                        }
+                    }
+
+                    if (foundHour)
+                    {
+                        break; 
+                    }
+                }
+            }
+
+            if (!foundDay)
+            {
+                throw new AppointmentReservedFailedException($"The desired day of the week ({dayOfWeek}) was not found in the doctor's schedule.");
+            }
+
+            if (!foundHour)
+            {
+                throw new AppointmentReservedFailedException($"The desired hour ({hour_app}) was not found in the doctor's schedule.");
             }
         }
 

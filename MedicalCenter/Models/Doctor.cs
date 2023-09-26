@@ -44,6 +44,7 @@ namespace MedicalCenter.Models
         public string Password { get; set; }
     }
 
+    public record DoctorDaysHours(Hours hours){}
     public record DoctorAppointment(int id, string name) { }
     public record DoctorTemp(int id, string name) { }
     public record DoctorLogin(string phoneNumber, string password) { }

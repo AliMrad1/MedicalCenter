@@ -239,7 +239,7 @@ namespace MedicalCenter.Controllers
                 appointmentService.DeleteAppointmentById(appointmentId);
                 return View("DeleteConfirmation");
             }
-            catch (AppointmentDeleteFailedException e)
+            catch (AppointmentDeleteFailedException)
             {
                 
                 return View("Error");

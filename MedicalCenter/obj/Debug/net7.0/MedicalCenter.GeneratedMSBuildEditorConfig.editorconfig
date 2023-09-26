@@ -9,77 +9,77 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MedicalCenter
 build_property.RootNamespace = MedicalCenter
-build_property.ProjectDir = C:\Users\ali\Documents\MedicalCenter\MedicalCenter\
+build_property.ProjectDir = /home/ali/Documents/medic/MedicalCenter/MedicalCenter/
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\ali\Documents\MedicalCenter\MedicalCenter
+build_property.MSBuildProjectDirectory = /home/ali/Documents/medic/MedicalCenter/MedicalCenter
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/ali/Documents/MedicalCenter/MedicalCenter/Views/Home/AddDoctorResult.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGREb2N0b3JSZXN1bHQuY3NodG1s
+[/home/ali/Documents/medic/MedicalCenter/MedicalCenter/Views/Home/AddDoctorResult.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9BZGREb2N0b3JSZXN1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ali/Documents/MedicalCenter/MedicalCenter/Views/Home/AddDoctors.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGREb2N0b3JzLmNzaHRtbA==
+[/home/ali/Documents/medic/MedicalCenter/MedicalCenter/Views/Home/AddDoctors.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9BZGREb2N0b3JzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ali/Documents/MedicalCenter/MedicalCenter/Views/Home/AllDoctors.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBbGxEb2N0b3JzLmNzaHRtbA==
+[/home/ali/Documents/medic/MedicalCenter/MedicalCenter/Views/Home/AllDoctors.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9BbGxEb2N0b3JzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ali/Documents/MedicalCenter/MedicalCenter/Views/Home/Appointments.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBcHBvaW50bWVudHMuY3NodG1s
+[/home/ali/Documents/medic/MedicalCenter/MedicalCenter/Views/Home/Appointments.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9BcHBvaW50bWVudHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ali/Documents/MedicalCenter/MedicalCenter/Views/Home/DeleteConfirmation.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZWxldGVDb25maXJtYXRpb24uY3NodG1s
+[/home/ali/Documents/medic/MedicalCenter/MedicalCenter/Views/Home/DeleteConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9EZWxldGVDb25maXJtYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ali/Documents/MedicalCenter/MedicalCenter/Views/Home/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0LmNzaHRtbA==
+[/home/ali/Documents/medic/MedicalCenter/MedicalCenter/Views/Home/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9FZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ali/Documents/MedicalCenter/MedicalCenter/Views/Home/EditAppointment.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0QXBwb2ludG1lbnQuY3NodG1s
+[/home/ali/Documents/medic/MedicalCenter/MedicalCenter/Views/Home/EditAppointment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9FZGl0QXBwb2ludG1lbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ali/Documents/MedicalCenter/MedicalCenter/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[/home/ali/Documents/medic/MedicalCenter/MedicalCenter/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ali/Documents/MedicalCenter/MedicalCenter/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[/home/ali/Documents/medic/MedicalCenter/MedicalCenter/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ali/Documents/MedicalCenter/MedicalCenter/Views/Home/UpdateDoctor.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxVcGRhdGVEb2N0b3IuY3NodG1s
+[/home/ali/Documents/medic/MedicalCenter/MedicalCenter/Views/Home/UpdateDoctor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9VcGRhdGVEb2N0b3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ali/Documents/MedicalCenter/MedicalCenter/Views/Home/VisitingDetails.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxWaXNpdGluZ0RldGFpbHMuY3NodG1s
+[/home/ali/Documents/medic/MedicalCenter/MedicalCenter/Views/Home/VisitingDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9WaXNpdGluZ0RldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ali/Documents/MedicalCenter/MedicalCenter/Views/Home/Visitings.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxWaXNpdGluZ3MuY3NodG1s
+[/home/ali/Documents/medic/MedicalCenter/MedicalCenter/Views/Home/Visitings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9WaXNpdGluZ3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ali/Documents/MedicalCenter/MedicalCenter/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+[/home/ali/Documents/medic/MedicalCenter/MedicalCenter/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ali/Documents/MedicalCenter/MedicalCenter/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[/home/ali/Documents/medic/MedicalCenter/MedicalCenter/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ali/Documents/MedicalCenter/MedicalCenter/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[/home/ali/Documents/medic/MedicalCenter/MedicalCenter/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ali/Documents/MedicalCenter/MedicalCenter/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+[/home/ali/Documents/medic/MedicalCenter/MedicalCenter/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ali/Documents/MedicalCenter/MedicalCenter/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-z0hznm7jle
+[/home/ali/Documents/medic/MedicalCenter/MedicalCenter/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-02xj6vu15f

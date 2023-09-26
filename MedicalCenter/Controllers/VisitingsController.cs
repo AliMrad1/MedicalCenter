@@ -54,8 +54,7 @@ public class VisitingsController : ControllerBase
     }
 
    [HttpGet("all")]
-   [Authorize("PatientPolicy")]
-   [Authorize("DoctorPolicy")]
+   [Authorize("CombinedPolicy")]
     public IActionResult AllVisitings()
    {
       try

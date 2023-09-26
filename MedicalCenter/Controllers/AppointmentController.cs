@@ -27,14 +27,37 @@ namespace MedicalCenter.Controllers
         [Authorize("PatientPolicy")]
         public async Task<IActionResult> Reserve_Appoitment(AppointmentRequest request)
         {
-            try
+
+            var phoneNumberClaim = User.FindFirst(ClaimTypes.MobilePhone);
+            var roleClaim = User.FindFirst(ClaimTypes.Role);
+
+            if (CheckAuthority.isAuthorize(phoneNumberClaim, request.patient.phonenumber, roleClaim, "patient"))
             {
-                await _service.reserveAnAppointment(request);
-                return Ok("Appointment has been reserved");
+                try
+                {
+                    await _service.reserveAnAppointment(request);
+                        return Ok(new AppointmentResponse(
+                            status: Status.Success.ToString(),
+                            message: "Appointment has been reserved",
+                            date_time:DateTime.Now
+                        ));
+                }
+                catch (AppointmentReservedFailedException e)
+                {
+                    return BadRequest(new AppointmentResponse(status: Status.Failure.ToString(),
+                                                        message: e.Message,
+                                                    date_time: DateTime.Now) 
+                                    {}
+                );
+                }
             }
-            catch (AppointmentReservedFailedException e)
+            else
             {
-                return BadRequest(e.Message);
+                return BadRequest(new AppointmentResponse(status: Status.Failure.ToString(),
+                                                        message: "Unauthorized Error!!",
+                                                    date_time: DateTime.Now) 
+                                    {}
+                );
             }
 
         }

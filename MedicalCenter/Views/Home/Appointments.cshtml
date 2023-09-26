@@ -64,10 +64,17 @@
 <!-- Visited Appointments Section -->
 <h2>Visited Appointments</h2>
 <div class="appointment-list">
+
+    @{
+            int count = 0;
+    }
+
     @foreach (var appointment in Model)
     {
+
         @if (appointment.isVisited)
         {
+            count++;    
             <div class="appointment-card">
                 <h3>@appointment.AppointmentDate</h3>
                 <p>Patient Name: @appointment.patient.name</p>
@@ -81,6 +88,13 @@
                 </div>
             </div>
         }
+
+    }
+
+    @{
+        if(count == 0){
+            <p>No Appointments Visited available.</p>
+        }
     }
 </div>
 
@@ -89,24 +103,31 @@
 <!-- All Appointments Section -->
 <h2>All Appointments</h2>
 <div class="appointment-list">
-    @foreach (var appointment in Model)
+     @if (Model != null && Model.Count > 0)
     {
-        @if (!appointment.isVisited)
+        @foreach (var appointment in Model)
         {
-            <div class="appointment-card">
-                <h3>@appointment.AppointmentDate</h3>
-                <p>Patient Name: @appointment.patient.name</p>
-                <p>Doctor Name: @appointment.doctor.name</p>
-                <p>Reason: @appointment.Reason</p>
-               
-                <p>Visited: No</p>
+            @if (!appointment.isVisited)
+            {
+                <div class="appointment-card">
+                    <h3>@appointment.AppointmentDate</h3>
+                    <p>Patient Name: @appointment.patient.name</p>
+                    <p>Doctor Name: @appointment.doctor.name</p>
+                    <p>Reason: @appointment.Reason</p>
                 
-                <div class="button-container">
-                    <button class="edit-button" data-appointment-id="@appointment.Id" onclick="editAppointment(@appointment.Id)">Edit</button>
-                    <button class="delete-button" onclick="deleteAppointment(@appointment.Id)">Delete</button>
+                    <p>Visited: No</p>
+                    
+                    <div class="button-container">
+                        <button class="edit-button" data-appointment-id="@appointment.Id" onclick="editAppointment(@appointment.Id)">Edit</button>
+                        <button class="delete-button" onclick="deleteAppointment(@appointment.Id)">Delete</button>
+                    </div>
                 </div>
-            </div>
-            }
+                }
+        }
+    }
+    else
+    {
+        <p>No Appointments available.</p>
     }
 </div>
 

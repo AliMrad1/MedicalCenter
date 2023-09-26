@@ -26,13 +26,7 @@ namespace MedicalCenter.Database
 
                     using (SqlCommand command = new SqlCommand("[dbo].[CHECK_APPOITMENT_DATE_IS_RESERVED]", connection))
                     {
-                        /*
-                         * 
-                         * 	@AppoitmentDatePARAM DateTime,
-	                        @Patient_Id bigint,
-	                        @Doctor_Id bigint,
-	                        @Reason varchar(150)
-                         */
+                    
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("@AppoitmentDatePARAM", request.AppointmentDate);
                         command.Parameters.AddWithValue("@Patient_Id", request.patient.id);
@@ -352,6 +346,46 @@ namespace MedicalCenter.Database
                 }
             }
             return p;
+        }
+
+        public DoctorDaysHours GET_Doctor_Days_Hours(int doctor_id)
+        {
+            DoctorDaysHours? doctorDaysHours = null;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(_CONN_STR))
+                {
+                    connection.Open();
+                    string sql = $"EXECUTE  [dbo].[GET_DOCTOR_HOURS_DAYS_BY_ID] '{doctor_id}';";
+
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                doctorDaysHours = new(
+                                    hours : new()
+                                    {
+                                        Id = (int) reader.GetInt64(0),
+                                        DayOfWeek = reader.GetString(1).Split(',').ToList(), //convert the array to list
+                                        time = reader.GetString(2).Split(',').ToList()
+                                    }
+                                )
+                                {};
+                            }
+                        }
+                    }
+                }
+
+                return doctorDaysHours;
+            }
+            catch (SqlException e)
+            {
+                throw new AppointmentReservedFailedException(e.Message);
+            }
+          
         }
     }
 }

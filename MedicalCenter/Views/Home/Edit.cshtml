@@ -37,7 +37,7 @@
         @Html.LabelFor(model => model.isVisited)
         <div class="checkbox">
             <label>
-                @Html.CheckBoxFor(model => model.isVisited)
+                @Html.CheckBoxFor(model => model.isVisited, new {@disabled = "disabled"})
                 @Html.DisplayNameFor(model => model.isVisited)
             </label>
         </div>
